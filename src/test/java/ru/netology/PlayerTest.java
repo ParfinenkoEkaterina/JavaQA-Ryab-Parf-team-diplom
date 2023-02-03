@@ -62,7 +62,7 @@ public class PlayerTest {
         player.installGame(game3);
 
         player.play(game1, 1);
-        player.play(game2, 2);
+        player.play(game2, 1);
         player.play(game3, 3);
 
 
