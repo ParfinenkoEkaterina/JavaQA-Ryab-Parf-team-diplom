@@ -55,7 +55,56 @@ public class PlayerTest {
 
     }
     @Test
-    public void shouldSumGenreIf
+    public void totalTimePlayedInOneGenre() {
+        Player player = new Player("Petya");
+        player.installGame(game1);
+        player.installGame(game2);
+        player.installGame(game3);
 
+        player.play(game1, 1);
+        player.play(game2, 2);
+        player.play(game3, 3);
+
+
+        Game expected = game3;
+        Game actual = player.mostPlayerByGenre("Simulator");
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldSumGenreIfGameRepeats() {
+
+        Player player = new Player("Petya");
+        player.installGame(game1);
+        player.installGame(game3);
+        player.installGame(game5);
+
+        player.play(game5, 6);
+        player.play(game5, 2);
+
+
+        int expected = 8;
+        int actual = player.sumGenre("Fighting");
+
+        assertEquals(expected, actual);
+    }
+    @Test
+    public void shouldSumOneGenreDifferentGames() {
+
+        Player player = new Player("Petya");
+        player.installGame(game4);
+        player.installGame(game5);
+        player.installGame(game6);
+
+        player.play(game4, 7);
+        player.play(game5, 7);
+        player.play(game6, 7);
+
+        int expected = 14;
+        int actual = player.sumGenre("Fighting");
+
+        assertEquals(expected, actual);
+    }
 
 }
