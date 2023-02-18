@@ -57,13 +57,13 @@ public class PlayerTest {
     @Test
     public void totalTimePlayedInOneGenre() {
         Player player = new Player("Petya");
-        player.installGame(game1);
         player.installGame(game2);
         player.installGame(game3);
+        player.installGame(game4);
 
-        player.play(game1, 1);
         player.play(game2, 1);
         player.play(game3, 3);
+        player.play(game4, 2);
 
 
         Game expected = game3;
