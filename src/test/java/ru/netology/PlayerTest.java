@@ -107,4 +107,33 @@ public class PlayerTest {
         assertEquals(expected, actual);
     }
 
-}
+    @Test
+    public void shouldGetName() {
+        Player player = new Player("Petya");
+
+        String expected = "Petya";
+        String actual = player.getName();
+
+        assertEquals(expected, actual);
+
+    }
+
+    @Test
+    public void shouldNotGetGame() {
+        Player player = new Player("Petya");
+
+
+       assertThrows(RuntimeException.class, () -> {
+           player.play(game6, 7);});
+       }
+
+    @Test
+    public void returnMostPlayedByGenre(){
+        Player player = new Player("Petya");
+
+        Game expected = null;
+        Game actual = player.mostPlayerByGenre("Simulator");
+
+        assertEquals(expected, actual);
+        }
+    }
