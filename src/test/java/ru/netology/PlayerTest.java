@@ -2,6 +2,7 @@ package ru.netology;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -20,7 +21,7 @@ public class PlayerTest {
     public void beforeEach() {
         store = new GameStore();
         game1 = store.publishGame("Mario", "Arcade");
-        game2 = store.publishGame( "Invaders", "Arcade");
+        game2 = store.publishGame("Invaders", "Arcade");
         game3 = store.publishGame("Top Gun", "Simulator");
         game4 = store.publishGame("F1", "Simulator");
         game5 = store.publishGame("KungFu", "Fighting");
@@ -43,17 +44,18 @@ public class PlayerTest {
     @Test
     public void shouldSumGenreIfTwoGames() {
 
-        Player player = new Player( "Petya");
+        Player player = new Player("Petya");
         player.installGame(game1);
         player.installGame(game2);
-        player.play(game1 , 5);
-        player.play(game2 , 4);
+        player.play(game1, 5);
+        player.play(game2, 4);
 
         int expected = 9;
         int actual = player.sumGenre(game1.getGenre());
         assertEquals(expected, actual);
 
     }
+
     @Test
     public void totalTimePlayedInOneGenre() {
         Player player = new Player("Petya");
@@ -89,6 +91,7 @@ public class PlayerTest {
 
         assertEquals(expected, actual);
     }
+
     @Test
     public void shouldSumOneGenreDifferentGames() {
 
@@ -123,17 +126,18 @@ public class PlayerTest {
         Player player = new Player("Petya");
 
 
-       assertThrows(RuntimeException.class, () -> {
-           player.play(game6, 7);});
-       }
+        assertThrows(RuntimeException.class, () -> {
+            player.play(game6, 7);
+        });
+    }
 
     @Test
-    public void returnMostPlayedByGenre(){
+    public void returnMostPlayedByGenreIfHavenNotPlayYet() {
         Player player = new Player("Petya");
 
         Game expected = null;
         Game actual = player.mostPlayerByGenre("Simulator");
 
         assertEquals(expected, actual);
-        }
     }
+}

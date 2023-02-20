@@ -41,7 +41,7 @@ public class Player {
         if (playedTime.containsKey(game)) {
             playedTime.put(game, playedTime.get(game) + hours);
         } else {
-            playedTime.put(game, hours);
+            RuntimeException e = new RuntimeException();
         }
         return playedTime.get(game);
     }
