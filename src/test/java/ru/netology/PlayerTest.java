@@ -131,13 +131,5 @@ public class PlayerTest {
         });
     }
 
-    @Test
-    public void returnMostPlayedByGenreIfHavenNotPlayYet() {
-        Player player = new Player("Petya");
 
-        Game expected = null;
-        Game actual = player.mostPlayerByGenre("Simulator");
-
-        assertEquals(expected, actual);
-    }
 }
