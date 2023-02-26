@@ -132,6 +132,19 @@ public class PlayerTest {
             player.play(game6, 7);
         });
     }
+    @Test
+    public void mostPlayerByGenreGamePlayed() {
+        Player player = new Player("Petya");
+        player.installGame(game4);
+        player.installGame(game3);
+
+        player.play(game4, 0);
+        player.play(game3, 0);
 
 
+        Game expected = game4;
+        Game actual = player.mostPlayerByGenre("Simulator");
+
+        assertEquals(expected, actual);
+    }
 }
