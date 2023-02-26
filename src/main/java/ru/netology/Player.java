@@ -64,16 +64,22 @@ public class Player {
      * Метод принимает жанр и возвращает игру этого жанра, в которую играли больше всего
      * Если в игры этого жанра не играли, возвращается null
      */
+
     public Game mostPlayerByGenre(String genre) {
-        int most = 0;
         Game mostGame = null;
         for (Game game : playedTime.keySet()) {
-            if (playedTime.get(game) > most && game.getGenre().equals(genre)) {
-                most = playedTime.get(game);
-                mostGame = game;
+            if (game.getGenre().equals(genre)) {
+                if (mostGame == null) {
+                    mostGame = game;
+                    continue;
+                }
+                if (playedTime.get(game) > playedTime.get(mostGame)) {
+                    mostGame = game;
+                }
             }
         }
         return mostGame;
+
     }
 
 }
