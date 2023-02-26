@@ -31,6 +31,8 @@ public class PlayerTest {
 
     @Test
     public void shouldSumGenreIfOneGame() {
+        GameStore store = new GameStore();
+        Game game = store.publishGame("Нетология Баттл Онлайн", "Аркады");
 
         Player player = new Player("Petya");
         player.installGame(game1);
