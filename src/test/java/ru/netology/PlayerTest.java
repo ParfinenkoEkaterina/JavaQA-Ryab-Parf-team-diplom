@@ -136,7 +136,7 @@ public class PlayerTest {
         player.installGame(game4);
         player.installGame(game3);
 
-        player.play(game4, 0);
+        player.play(game4, 1);
         player.play(game3, 0);
 
 
